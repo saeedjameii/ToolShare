@@ -34,7 +34,7 @@ class PostController extends Controller
             'available_from' => 'nullable|date',
             'available_untill' => 'nullable|date|after_or_equal:available_from',
             'images' => 'required|array|max:5',
-            'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:5120',
+            'images.*' => 'image|max:5120',
         ]);
 
         // dd($data);
