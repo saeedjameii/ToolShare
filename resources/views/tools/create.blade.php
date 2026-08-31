@@ -26,13 +26,22 @@
     id="listing-form"
 >
 @csrf
+@if ($errors->any())
+<div class="validation-message" style="display:block;margin-bottom:16px;">
+    <ul style="margin:0;padding-inline-start:20px;">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <section class="form-section">
 <div class="section-heading"><span class="step-number">01</span><div><h2>Tool details</h2><p class="section-description">Help renters quickly understand what they are borrowing.</p></div></div>
 <div class="field-grid">
 
 <div class="field full-field">
 <label for="tool-title">Tool title</label>
-<input class="form-control" id="tool-title" name="tool-title" type="text" maxlength="80" placeholder="e.g. Cordless drill">
+<input class="form-control" id="tool-title" name="title" type="text" maxlength="80" placeholder="e.g. Cordless drill">
 <span class="validation-message" id="tool-title-error"></span>
 </div>
 
@@ -45,7 +54,7 @@
 
 <div class="field">
 <label for="category">Category</label>
-<select class="form-control" id="category" name="category">
+<select class="form-control" id="category" name="category_id">
 <option value="">Select a category</option>
 @foreach ($categories as $category)
 <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -76,10 +85,10 @@
 <div class="section-heading"><span class="step-number">02</span><div><h2>Pricing &amp; availability</h2><p class="section-description">Set a simple daily price and choose when your tool can be picked up.</p></div></div>
 <div class="field-grid">
 
-<div class="field"><label for="first-day-price">Price for first day</label><div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control" id="first-day-price" name="first-day-price" type="number" min="0" step="0.01" placeholder="0"></div><span class="validation-message" id="first-day-error"></span></div>
-<div class="field"><label for="extra-day-price">Price for each extra day</label><div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control" id="extra-day-price" name="extra-day-price" type="number" min="0" step="0.01" placeholder="0"></div><span class="validation-message" id="extra-day-error"></span></div>
-<div class="field"><label for="available-start">Available from</label><input class="form-control" id="available-start" name="available-start" type="date"></div>
-<div class="field"><label for="available-end">Available until</label><input class="form-control" id="available-end" name="available-end" type="date"><span class="validation-message" id="date-error"></span></div>
+<div class="field"><label for="first-day-price">Price for first day</label><div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control" id="first-day-price" name="first_day_price" type="number" min="0" step="0.01" placeholder="0"></div><span class="validation-message" id="first-day-error"></span></div>
+<div class="field"><label for="extra-day-price">Price for each extra day</label><div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control" id="extra-day-price" name="extra_day_price" type="number" min="0" step="0.01" placeholder="0"></div><span class="validation-message" id="extra-day-error"></span></div>
+<div class="field"><label for="available-start">Available from</label><input class="form-control" id="available-start" name="available_from" type="date"></div>
+<div class="field"><label for="available-end">Available until</label><input class="form-control" id="available-end" name="available_untill" type="date"><span class="validation-message" id="date-error"></span></div>
 </div>
 </section>
 
