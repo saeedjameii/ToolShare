@@ -19,8 +19,13 @@
 </section>
 
 <div class="workspace">
-<form id="listing-form" class="form-card" novalidate>
-
+<form
+    action="{{ route('create.post') }}"
+    method="POST"
+    enctype="multipart/form-data"
+    id="listing-form"
+>
+@csrf
 <section class="form-section">
 <div class="section-heading"><span class="step-number">01</span><div><h2>Tool details</h2><p class="section-description">Help renters quickly understand what they are borrowing.</p></div></div>
 <div class="field-grid">
@@ -41,7 +46,11 @@
 <div class="field">
 <label for="category">Category</label>
 <select class="form-control" id="category" name="category">
-<option value="">Select a category</option><option>Power tools</option><option>Hand tools</option><option>Garden</option><option>Cleaning</option><option>Audio &amp; video</option><option>Outdoor</option><option>Other</option>
+<option value="">Select a category</option>
+@foreach ($categories as $category)
+<option value="{{ $category->id }}">{{ $category->title }}</option>
+  
+@endforeach
 </select>
 <span class="validation-message" id="category-error"></span>
 </div>
@@ -77,7 +86,7 @@
 <section class="form-section">
 <div class="section-heading"><span class="step-number">03</span><div><h2>Photos</h2><p class="section-description">Bright, clear photos help your listing stand out.</p></div></div>
 <label class="upload-zone" for="tool-photos">
-<input id="tool-photos" type="file" accept="image/*" multiple>
+<input id="tool-photos" name="images[]" type="file" accept="image/*" multiple>
 <span><span class="upload-icon">＋</span><span class="upload-title">Drop photos here or choose files</span><span class="upload-copy">Choose up to 5 images. They are shown only in this preview and are not uploaded.</span></span>
 </label>
 <div id="thumbnail-strip" class="thumbnail-strip"></div>

@@ -21,7 +21,7 @@
         </p>
         <div class="hero-buttons">
           <a class="btn btn-primary" href="tools.html">Browse Tools</a>
-          <a class="btn btn-secondary" href="{{ route('create.post') }}">List Your Tool</a>
+          <a class="btn btn-secondary" href="{{ route('create_post') }}">List Your Tool</a>
         </div>
       </div>
       <div class="hero-image">

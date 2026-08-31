@@ -25,7 +25,7 @@ return new class extends Migration
             // $table->string('image');
 
             $table->decimal('first_day_price', 10, 2)->nullable();
-            $table->decimal('first_day_price', 10, 2)->nullable();
+            $table->decimal('extra_day_price', 10, 2)->nullable();
             $table->date('available_from')->nullable();
             $table->date('available_untill')->nullable();
 
