@@ -47,7 +47,7 @@
           <div class="form-group">
             <div class="password-row">
               <label for="password">Password</label
-              ><a class="small-link" href="#">Forgot password?</a>
+              ><a class="small-link" href="{{ route('forgetPassword') }}">Forgot password?</a>
             </div>
             <input
               class="input"
