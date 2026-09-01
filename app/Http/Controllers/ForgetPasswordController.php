@@ -47,7 +47,10 @@ class ForgetPasswordController extends Controller
 
 
     public function resetPassword($token){
-        return view('auth.reset', compact('token'));
+        if(DB::table('password_reset_tokens')->where(['token' => $token])->first()){
+            return view('auth.reset', compact('token'));
+        }
+        return abort(403);
     }
 
     public function resetPasswordPost(Request $request){
