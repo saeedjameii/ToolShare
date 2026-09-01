@@ -43,10 +43,9 @@ class PostController extends Controller
 
         unset($data['images']);
 
-        // Use validated data when creating the post
-        $post = Post::create(array_merge($data, [
-            'user_id' => Auth::id(),
-        ]));
+        $data['user_id'] = Auth::id();
+
+        $post = Post::create($data);
 
         // dd("done");
 

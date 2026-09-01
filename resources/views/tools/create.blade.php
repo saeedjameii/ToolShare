@@ -42,14 +42,14 @@
 
                             <div class="field full-field">
                                 <label for="tool-title">Tool title</label>
-                                <input class="form-control" id="tool-title" name="title" type="text" maxlength="80"
+                                <input class="form-control" id="tool-title" name="title" type="text" maxlength="80" value="{{ old('title') }}"
                                     placeholder="e.g. Cordless drill">
                                 <span class="validation-message" id="tool-title-error"></span>
                             </div>
 
                             <div class="field full-field">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" id="description" name="description" maxlength="1000"
+                                <textarea class="form-control" id="description" name="description" maxlength="1000" value="{{ old('description') }}"
                                     placeholder="Describe what is included, what it is best for, and anything renters should know."></textarea>
                                 <div class="counter-line"><span id="character-count">0 / 1000</span></div>
                                 <span class="validation-message" id="description-error"></span>
@@ -57,7 +57,7 @@
 
                             <div class="field">
                                 <label for="category">Category</label>
-                                <select class="form-control" id="category" name="category_id">
+                                <select class="form-control" id="category" name="category_id" value="{{ old('category_id') }}">
                                     <option value="">Select a category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -68,7 +68,7 @@
 
                             <div class="field">
                                 <label for="condition">Tool condition</label>
-                                <select class="form-control" id="condition" name="condition">
+                                <select class="form-control" id="condition" name="condition" value="{{ old('condition') }}">
                                     <option value="">Select condition</option>
                                     <option>New</option>
                                     <option>Like new</option>
@@ -80,7 +80,7 @@
 
                             <div class="field full-field">
                                 <label for="location">Location</label>
-                                <input class="form-control" id="location" name="location" type="text" maxlength="80"
+                                <input class="form-control" id="location" name="location" type="text" maxlength="80" value="{{ old('location') }}"
                                     placeholder="e.g. Northside, near the station">
                                 <span class="field-hint">Share a general pickup area, not your full address.</span>
                                 <span class="validation-message" id="location-error"></span>
@@ -100,21 +100,21 @@
 
                             <div class="field"><label for="first-day-price">Price for first day</label>
                                 <div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control"
-                                        id="first-day-price" name="first_day_price" type="number" min="0"
+                                        id="first-day-price" name="first_day_price" type="number" value="{{ old('first-day-price') }}" min="0"
                                         step="0.01" placeholder="0"></div><span class="validation-message"
                                     id="first-day-error"></span>
                             </div>
                             <div class="field"><label for="extra-day-price">Price for each extra day</label>
                                 <div class="currency-wrap"><span class="currency-symbol">$</span><input class="form-control"
-                                        id="extra-day-price" name="extra_day_price" type="number" min="0"
+                                        id="extra-day-price" name="extra_day_price" type="number" value="{{ old('extra-day-price') }}" min="0"
                                         step="0.01" placeholder="0"></div><span class="validation-message"
                                     id="extra-day-error"></span>
                             </div>
                             <div class="field"><label for="available-start">Available from</label><input
-                                    class="form-control" id="available-start" name="available_from" type="date">
+                                    class="form-control" id="available-start" name="available_from" type="date" value="{{ old('available_from') }}">
                             </div>
                             <div class="field"><label for="available-end">Available until</label><input
-                                    class="form-control" id="available-end" name="available_untill" type="date"><span
+                                    class="form-control" id="available-end" name="available_untill" type="date" value="{{ old('available_untill') }}"><span
                                     class="validation-message" id="date-error"></span></div>
                         </div>
                     </section>
